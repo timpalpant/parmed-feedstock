@@ -1,16 +1,17 @@
 {% set name = "ParmEd" %}
-{% set version = "4.3.0" %}
+{% set version = "3.4.4.post1" %}
+{% set commit = "e682cb1e7907179462beb164fff059f655f0f567" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/{{ name }}/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 56e7c0a018d086ff6253265be6755e7965e7ac3bef358073787ca89df08e2015
+  url: https://github.com/timpalpant/{{ name }}/archive/{{ commit }}.tar.gz
+  sha256: 83a848f4ee9c5910cee7e07cb95fe715191551ff820f9813e64f38197ed055f4
 
 build:
-  number: 2
+  number: 0
   entry_points:
     - parmed = parmed.scripts:clapp
   script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
@@ -27,7 +28,7 @@ requirements:
     - setuptools
     - python
   run:
-    - numpy >=1.14,<2.3
+    - numpy
     - pandas
     - python
 
